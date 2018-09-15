@@ -1,0 +1,507 @@
+[
+    {
+        "ActorName" : "Emilio Estevez",
+        "BirthDate" : "1962-05-12",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [1]
+    },
+    {
+        "ActorName" : "Judd Nelson",
+        "BirthDate" : "1959-11-28",
+        "BornInCity" : "Portland, Maine, USA",
+        "MovieIds" : [1]
+    },
+    {
+        "ActorName" : "Molly Ringwald",
+        "BirthDate" : "1968-02-18",
+        "BornInCity" : "Roseville, California, USA",
+        "MovieIds" : [1,3,5]
+    },
+    {
+        "ActorName" : "Ally Sheedy",
+        "BirthDate" : "1962-06-13",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [1]
+    },
+    {
+        "ActorName" : "Anthony Michael Hall",
+        "BirthDate" : "1968-04-14",
+        "BornInCity" : "West Roxbury, Massachusetts, USA",
+        "MovieIds" : [1,3,4]
+    },
+    {
+        "ActorName" : "Val Kilmer",
+        "BirthDate" : "1959-12-31",
+        "BornInCity" : "Los Angeles, California, USA",
+        "MovieIds" : [2,25]
+    },
+    {
+        "ActorName" : "Gabriel Jarret",
+        "BirthDate" : "1970-01-01",
+        "BornInCity" : "Los Angeles, California, USA",
+        "MovieIds" : [2]
+    },
+    {
+
+        "ActorName" : "Michelle Meyrink",
+        "BirthDate" : "1962-09-01",
+        "BornInCity" : "Vancouver, British Columbia, Canada",
+        "MovieIds" : [2]
+    },
+    {
+        "ActorName" : "William Atherton",
+        "BirthDate" : "1947-07-30",
+        "BornInCity" : "Orange, Connecticut, USA",
+        "MovieIds" : [2]
+    },
+    {
+        "ActorName" : "Justin Henry",
+        "BirthDate" : "1971-05-25",
+        "BornInCity" : "Rye, New York, USA",
+        "MovieIds" : [3]
+    },
+    {
+        "ActorName" : "Michael Schoeffling",
+        "BirthDate" : "1960-12-10",
+        "BornInCity" : "Wilkes-Barre, Pennsylvania, USA",
+        "MovieIds" : [3]
+    },
+    {
+        "ActorName" : "Ilan Mitchell-Smith",
+        "BirthDate" : "1969-06-29",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [4]
+    },
+    {
+        "ActorName" : "Kelly LeBrock",
+        "BirthDate" : "1960-03-24",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [4]
+    },
+    {
+        "ActorName" : "Bill Paxton",
+        "BirthDate" : "1955-05-17",
+        "BornInCity" : "Fort Worth, Texas, USA",
+        "MovieIds" : [4]
+    },
+    {
+        "ActorName" : "Jon Cryer",
+        "BirthDate" : "1965-04-16",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [5]
+    },
+    {
+        "ActorName" : "Harry Dean Stanton",
+        "BirthDate" : "1926-07-14",
+        "BornInCity" : "West Irvine, Kentucky, USA",
+        "MovieIds" : [5]
+    },
+    {
+        "ActorName" : "Michael J. Fox",
+        "BirthDate" : "1961-06-09",
+        "BornInCity" : "Edmonton, Alberta, Canada",
+        "MovieIds" : [6,7]
+    },
+    {
+        "ActorName" : "Christopher Lloyd",
+        "BirthDate" : "1938-10-22",
+        "BornInCity" : "Stamford, Connecticut, USA",
+        "MovieIds" : [6,7,20]
+    },
+    {
+        "ActorName" : "Lea Thompson",
+        "BirthDate" : "1961-05-31",
+        "BornInCity" : "Rochester, Minnesota, USA",
+        "MovieIds" : [6,7]
+    },
+    {
+        "ActorName" : "Crispin Glover",
+        "BirthDate" : "1964-04-20",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [6]
+    },
+    {
+        "ActorName" : "Thomas F. Wilson",
+        "BirthDate" : "1959-04-15",
+        "BornInCity" : "Philadelphia, Pennsylvania, USA",
+        "MovieIds" : [6,7]
+    },
+    {
+        "ActorName" : "Mark Hamill",
+        "BirthDate" : "1951-09-25",
+        "BornInCity" : "Oakland, California, USA",
+        "MovieIds" : [8,9]
+    },
+    {
+        "ActorName" : "Harrison Ford",
+        "BirthDate" : "1942-07-13",
+        "BornInCity" : "Chicago, Illinois, USA",
+        "MovieIds" : [8,9,16,17,18]
+    },
+    {
+        "ActorName" : "Carrie Fisher",
+        "BirthDate" : "1956-10-21",
+        "BornInCity" : "Burbank, California, USA",
+        "MovieIds" : [8,9,21]
+    },
+    {
+        "ActorName" : "Billy Dee Williams",
+        "BirthDate" : "1937-04-06",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [8,9]
+    },
+    {
+        "ActorName" : "William Shatner",
+        "BirthDate" : "1931-03-22",
+        "BornInCity" : "Montreal, Quebec, Canada",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "Leonard Nimoy",
+        "BirthDate" : "1931-03-26",
+        "BornInCity" : "Boston, Massachusetts, USA",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "DeForest Kelley",
+        "BirthDate" : "1920-01-20",
+        "BornInCity" : "Toccoa, Georgia, USA",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "James Doohan",
+        "BirthDate" : "1920-03-03",
+        "BornInCity" : "Vancouver, British Columbia, Canada",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "Walter Koenig",
+        "BirthDate" : "1936-09-14",
+        "BornInCity" : "Chicago, Illinois, USA",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "George Takei",
+        "BirthDate" : "1937-04-20",
+        "BornInCity" : "Los Angeles, California, USA",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "Nichelle Nichols",
+        "BirthDate" : "1932-12-28",
+        "BornInCity" : "Robbins, Illinois, USA",
+        "MovieIds" : [10,11]
+    },
+    {
+        "ActorName" : "Henry Thomas",
+        "BirthDate" : "1971-09-09",
+        "BornInCity" : "San Antonio, Texas, USA",
+        "MovieIds" : [12]
+    },
+    {
+        "ActorName" : "Drew Barrymore",
+        "BirthDate" : "1975-02-22",
+        "BornInCity" : "Culver City, California, USA",
+        "MovieIds" : [12]
+    },
+    {
+        "ActorName" : "Peter Coyote",
+        "BirthDate" : "1941-10-10",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [12]
+    },
+    {
+        "ActorName" : "Dee Wallace",
+        "BirthDate" : "1948-12-14",
+        "BornInCity" : "Kansas City, Kansas, USA",
+        "MovieIds" : [12]
+    },
+    {
+        "ActorName" : "Patrick Swayze",
+        "BirthDate" : "1952-08-18",
+        "BornInCity" : "Houston, Texas, USA",
+        "MovieIds" : [13]
+    },
+    {
+        "ActorName" : "Jennifer Grey",
+        "BirthDate" : "1960-03-26",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [13]
+    },
+    {
+        "ActorName" : "Jerry Orbach",
+        "BirthDate" : "1935-10-20",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [13]
+    },
+    {
+        "ActorName" : "Cynthia Rhodes",
+        "BirthDate" : "1956-11-21",
+        "BornInCity" : "Nashville, Tennessee, USA",
+        "MovieIds" : [13]
+    },
+    {
+        "ActorName" : "Charlie Sheen",
+        "BirthDate" : "1965-09-03",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [14]
+    },
+    {
+        "ActorName" : "Tom Berenger",
+        "BirthDate" : "1949-05-31",
+        "BornInCity" : "Chicago, Illinois, USA",
+        "MovieIds" : [14]
+    },
+    {
+        "ActorName" : "Willem Dafoe",
+        "BirthDate" : "1955-07-22",
+        "BornInCity" : "Appleton, Wisconsin, USA",
+        "MovieIds" : [14]
+    },
+    {
+        "ActorName" : "Keith David",
+        "BirthDate" : "1956-06-4",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [14]
+    },
+    {
+        "ActorName" : "Cary Elwes",
+        "BirthDate" : "1962-10-26",
+        "BornInCity" : "London, England, UK",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Mandy Patinkin",
+        "BirthDate" : "1952-11-30",
+        "BornInCity" : "Chicago, Illinois, USA",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Robin Wright",
+        "BirthDate" : "1966-04-08",
+        "BornInCity" : "Dallas, Texas, USA",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Chris Sarandon",
+        "BirthDate" : "1942-07-24",
+        "BornInCity" : "Beckley, West Virginia, USA",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Wallace Shawn",
+        "BirthDate" : "1943-11-12",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Fred Savage",
+        "BirthDate" : "1976-07-09",
+        "BornInCity" : "Chicago, Illinois, USA",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Peter Falk",
+        "BirthDate" : "1927-09-16",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [15]
+    },
+    {
+        "ActorName" : "Karen Allen",
+        "BirthDate" : "1951-10-05",
+        "BornInCity" : "Carrollton, Illinios, USA",
+        "MovieIds" : [16]
+    },
+    {
+        "ActorName" : "Paul Freeman",
+        "BirthDate" : "1943-01-18",
+        "BornInCity" : "Barnet, Hertfordshire, England, UK",
+        "MovieIds" : [16]
+    },
+    {
+        "ActorName" : "John Rhys-Davies",
+        "BirthDate" : "1944-05-05",
+        "BornInCity" : "Ammandford, Wales, UK",
+        "MovieIds" : [16]
+    },
+    {
+        "ActorName" : "Kate Capshaw",
+        "BirthDate" : "1953-11-03",
+        "BornInCity" : "Fort Worth, Texas, USA",
+        "MovieIds" : [17]
+    },
+    {
+        "ActorName" : "Jonathan Ke Quan",
+        "BirthDate" : "1971-08-20",
+        "BornInCity" : "Saigon, Vietnam",
+        "MovieIds" : [17]
+    },
+    {
+        "ActorName" : "Amrish Puri",
+        "BirthDate" : "1932-06-22",
+        "BornInCity" : "Nawanshahr, Jullundur, Punjap, British India",
+        "MovieIds" : [17]
+    },
+    {
+        "ActorName" : "Sean Connery",
+        "BirthDate" : "1930-08-25",
+        "BornInCity" : "Edinburgh, Scotland, UK",
+        "MovieIds" : [18]
+    },
+    {
+        "ActorName" : "Alison Doody",
+        "BirthDate" : "1966-11-11",
+        "BornInCity" : "Dublin, Ireland",
+        "MovieIds" : [18]
+    },
+    {
+        "ActorName" : "Denholm Elliott",
+        "BirthDate" : "1922-05-31",
+        "BornInCity" : "Ealing, London, England, UK",
+        "MovieIds" : [16,18]
+    },
+    {
+        "ActorName" : "Arnold Schwarzenegger",
+        "BirthDate" : "1947-07-30",
+        "BornInCity" : "Thal, Styria, Austria",
+        "MovieIds" : [19]
+    },
+    {
+        "ActorName" : "Linda Hamilton",
+        "BirthDate" : "1956-09-26",
+        "BornInCity" : "Salisbury, Maryland, USA",
+        "MovieIds" : [19]
+    },
+    {
+        "ActorName" : "Michael Biehn",
+        "BirthDate" : "1956-07-31",
+        "BornInCity" : "Anniston, Alabama, USA",
+        "MovieIds" : [19]
+    },
+    {
+        "ActorName" : "Paul Winfield",
+        "BirthDate" : "1939-05-22",
+        "BornInCity" : "Los Angeles, California, USA",
+        "MovieIds" : [19]
+    },
+    {
+        "ActorName" : "Bob Hoskins",
+        "BirthDate" : "1942-10-26",
+        "BornInCity" : "Bury St. Edmunds, Suffolk, England, UK",
+        "MovieIds" : [20]
+    },
+    {
+        "ActorName" : "Joanna Cassidy",
+        "BirthDate" : "1945-08-02",
+        "BornInCity" : "Haddonfield, New Jersey, USA",
+        "MovieIds" : [20]
+    },
+    {
+        "ActorName" : "Charles Fleischer",
+        "BirthDate" : "1950-08-27",
+        "BornInCity" : "Washington, District of Columbia, USA",
+        "MovieIds" : [20]
+    },
+    {
+        "ActorName" : "Billy Crystal",
+        "BirthDate" : "1948-03-14",
+        "BornInCity" : "Rokville, Manhattan, New York City, New York, USA",
+        "MovieIds" : [15,21]
+    },
+    {
+        "ActorName" : "Meg Ryan",
+        "BirthDate" : "1961-11-19",
+        "BornInCity" : "Fairfield, Connecticut, USA",
+        "MovieIds" : [21]
+    },
+    {
+        "ActorName" : "Bruno Kirby",
+        "BirthDate" : "1949-04-28",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [21]
+    },
+    {
+        "ActorName" : "David Bowie",
+        "BirthDate" : "1947-01-08",
+        "BornInCity" : "Brixton, London, England, UK",
+        "MovieIds" : [22]
+    },
+    {
+        "ActorName" : "Jennifer Connelyl",
+        "BirthDate" : "1970-12-12",
+        "BornInCity" : "Catskill Mountains, New York, USA",
+        "MovieIds" : [22]
+    },
+    {
+        "ActorName" : "Toby Froud",
+        "BirthDate" : "1984-01-01",
+        "BornInCity" : "London, England, UK",
+        "MovieIds" : [22]
+    },
+    {
+        "ActorName" : "Shelley Thompson",
+        "BirthDate" : "1959-01-01",
+        "BornInCity" : "Calgary, Alberta, Canada",
+        "MovieIds" : [22]
+    },
+    {
+        "ActorName" : "Tom Cruise",
+        "BirthDate" : "1962-07-03",
+        "BornInCity" : "Syracuse, New York, USA",
+        "MovieIds" : [23,25]
+    },
+    {
+        "ActorName" : "Mia Sara",
+        "BirthDate" : "1967-06-19",
+        "BornInCity" : "Brooklyn Heights, New York, USA",
+        "MovieIds" : [23]
+    },
+    {
+        "ActorName" : "Tim Curry",
+        "BirthDate" : "1946-04-19",
+        "BornInCity" : "Grappenhall, Cheshire, England, UK",
+        "MovieIds" : [23]
+    },
+    {
+        "ActorName" : "David Bennent",
+        "BirthDate" : "1966-09-09",
+        "BornInCity" : "Lausanne, Vaud, Switzerland",
+        "MovieIds" : [23]
+    },
+    {
+        "ActorName" : "Keanu Reeves",
+        "BirthDate" : "1964-09-02",
+        "BornInCity" : "Beirut, Lebanon",
+        "MovieIds" : [24]
+    },
+    {
+        "ActorName" : "Alex Winter",
+        "BirthDate" : "1965-07-17",
+        "BornInCity" : "London, England, UK",
+        "MovieIds" : [24]
+    },
+    {
+        "ActorName" : "George Carlin",
+        "BirthDate" : "1937-05-12",
+        "BornInCity" : "New York City, New York, USA",
+        "MovieIds" : [24]
+    },
+    {
+        "ActorName" : "Terry Camilleri",
+        "BirthDate" : "1949-01-01",
+        "BornInCity" : "Malta",
+        "MovieIds" : [24]
+    },
+    {
+        "ActorName" : "Tim Robbins",
+        "BirthDate" : "1958-10-16",
+        "BornInCity" : "West Covina, California, USA",
+        "MovieIds" : [25]
+    },
+    {
+        "ActorName" : "Kelly McGillis",
+        "BirthDate" : "1957-07-09",
+        "BornInCity" : "Newport Beach, California, USA",
+        "MovieIds" : [25]
+    }
+]
