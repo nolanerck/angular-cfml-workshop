@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <cfsetting requestTimeOut = "120">
 <cfscript>
-    public boolean function isStructValueNull ( required struct strc, required string key ) {
+    function isStructValueNull ( required struct strc, required string key ) {
         return ListFind( StructKeyList( strc ), key ) && !StructKeyExists( strc, key );
     }
 
@@ -36,7 +36,9 @@
         queryExecute( SQL );
 
         var curPath = Replace( GetDirectoryFromPath( GetCurrentTemplatePath() ), "\", "/", "ALL");
-        var movies = deserializeJSON( fileread( curPath & 'movies.json', 'utf-8' ) );
+        var jsonPath = reverse( listRest( reverse( curPath ), "/" ) ) & '/api/v1/';
+
+        var movies = deserializeJSON( fileRead( jsonPath & 'movies.json', 'utf-8' ) );
         movies.each( function( movie ) {
             queryExecute(
                 "INSERT INTO tMovies
@@ -51,31 +53,32 @@
                 }
             );
         });
-        var actors = deserializeJSON( fileread( curPath & 'actors.json', 'utf-8' ) );
+        var actors = deserializeJSON( fileRead( jsonPath & 'actors.json', 'utf-8' ) );
         actors.each( function ( actor ) {
-            var result = '';
             queryExecute(
                 "INSERT INTO tActors
-                ( ActorName, BirthDate, BornInCity )
-                VALUES ( :actorname, :birthdate, :bornincity )",
+                ( ActorId, ActorName, BirthDate, BornInCity )
+                VALUES ( :actorid, :actorname, :birthdate, :bornincity )",
                 {
+                    actorid = { value = actor.ActorID, cfsqltype = 'INTEGER' },
                     actorname = { value = actor.ActorName, cfsqltype = 'VARCHAR' },
                     birthdate = { value = actor.BirthDate, cfsqltype = 'DATE' },
                     bornincity = { value = actor.BornInCity, cfsqltype = 'VARCHAR' }
-                },
-                { result = 'result' }
+                }
             );
-            actor.MovieIds.each( function( MovieId ) {
-                queryExecute(
-                    "INSERT INTO tMoviesToActors
-                    ( MovieID, ActorId )
-                    VALUES ( :movieid, :actorid )",
-                    {
-                        movieid = { value = MovieId, cfsqltype = 'INTEGER' },
-                        actorid = { value = result.generatedkey, cfsqltype = 'INTEGER' }
-                    }
-                );
-            });
+        });
+        var moviesToActors = deserializeJSON( fileRead( jsonPath & 'moviesToActors.json', 'utf-8' ) );
+        moviesToActors.each( function ( movieToActor ) {
+            queryExecute(
+                "INSERT INTO tMoviesToActors
+                ( id, MovieID, ActorID )
+                VALUES ( :id, :movieid, :actorid )",
+                {
+                    id = { value = movieToActor.id, cfsqltype = 'INTEGER' },
+                    movieid = { value = movieToActor.MovieID, cfsqltype = 'INTEGER' },
+                    actorid = { value = movieToActor.ActorID, cfsqltype = 'INTEGER' }
+                }
+            );
         });
     }
 </cfscript>

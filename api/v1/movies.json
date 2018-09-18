@@ -1,0 +1,177 @@
+[
+    {
+        "MOVIEID": 1,
+        "TITLE": "The Breakfast Club",
+        "RATING": "R",
+        "RELEASEYEAR": 1985,
+        "PLOTSUMMARY": "Five high school students meet in Saturday detention and discover how they have a lot more in common than they thought."
+    },
+    {
+        "MOVIEID": 2,
+        "TITLE": "Real Genius",
+        "RATING": "PG",
+        "RELEASEYEAR": 1985,
+        "PLOTSUMMARY": "Teenage geniuses deal with their abilities while developing a high-powered laser for a university project. When their professor intends to turn their work into a military weapon, they decide to ruin his plans."
+    },
+    {
+        "MOVIEID": 3,
+        "TITLE": "Sixteen Candles",
+        "RATING": "PG",
+        "RELEASEYEAR": 1984,
+        "PLOTSUMMARY": "A girl's \"sweet\" sixteenth birthday becomes anything but special, as she suffers from every embarrassment possible."
+    },
+    {
+        "MOVIEID": 4,
+        "TITLE": "Weird Science",
+        "RATING": "PG-13",
+        "RELEASEYEAR": 1985,
+        "PLOTSUMMARY": "Two high school nerds attempt to create the perfect woman, but she turns out to be more than that."
+    },
+    {
+        "MOVIEID": 5,
+        "TITLE": "Pretty in Pink",
+        "RATING": "PG-13",
+        "RELEASEYEAR": 1986,
+        "PLOTSUMMARY": "A poor girl must choose between the affections of dating her childhood sweetheart or a rich but sensitive playboy."
+    },
+    {
+        "MOVIEID": 6,
+        "TITLE": "Back to the Future",
+        "RATING": "PG",
+        "RELEASEYEAR": 1985,
+        "PLOTSUMMARY": "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown."
+    },
+    {
+        "MOVIEID": 7,
+        "TITLE": "Back to the Future Part II",
+        "RATING": "PG",
+        "RELEASEYEAR": 1989,
+        "PLOTSUMMARY": "After visiting 2015, Marty McFly must repeat his visit to 1955 to prevent disastrous changes to 1985...without interfering with his first trip."
+    },
+    {
+        "MOVIEID": 8,
+        "TITLE": "Star Wars: Episode V - The Empire Strikes Back",
+        "RATING": "PG",
+        "RELEASEYEAR": 1980,
+        "PLOTSUMMARY": "After the rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued by Darth Vader."
+    },
+    {
+        "MOVIEID": 9,
+        "TITLE": "Star Wars: Episode VI - Return of the Jedi",
+        "RATING": "PG",
+        "RELEASEYEAR": 1983,
+        "PLOTSUMMARY": "After a daring mission to rescue Han Solo from Jabba the Hutt, the rebels dispatch to Endor to destroy a more powerful Death Star. Meanwhile, Luke struggles to help Vader back from the dark side without falling into the Emperor's trap."
+    },
+    {
+        "MOVIEID": 10,
+        "TITLE": "Star Trek II: The Wrath of Khan",
+        "RATING": "PG",
+        "RELEASEYEAR": 1982,
+        "PLOTSUMMARY": "With the assistance of the Enterprise crew, Admiral Kirk must stop an old nemesis, Khan Noonien Singh, from using the life-generating Genesis Device as the ultimate weapon."
+    },
+    {
+        "MOVIEID": 11,
+        "TITLE": "Star Trek IV: The Voyage Home",
+        "RATING": "PG",
+        "RELEASEYEAR": 1986,
+        "PLOTSUMMARY": "To save Earth from an alien probe, Admiral James T. Kirk and his fugitive crew go back in time to San Francisco in 1986 to retrieve the only beings who can communicate with it: humpback whales."
+    },
+    {
+        "MOVIEID": 12,
+        "TITLE": "E.T. the Extra-Terrestrial",
+        "RATING": "PG",
+        "RELEASEYEAR": 1982,
+        "PLOTSUMMARY": "A troubled child summons the courage to help a friendly alien escape Earth and return to his home world."
+    },
+    {
+        "MOVIEID": 13,
+        "TITLE": "Dirty Dancing",
+        "RATING": "PG-13",
+        "RELEASEYEAR": 1987,
+        "PLOTSUMMARY": "Spending the summer at a Catskills resort with her family, Frances \"Baby\" Houseman falls in love with the camp's dance instructor, Johnny Castle."
+    },
+    {
+        "MOVIEID": 14,
+        "TITLE": "Platoon",
+        "RATING": "R",
+        "RELEASEYEAR": 1986,
+        "PLOTSUMMARY": "A young soldier in Vietnam faces a moral crisis when confronted with the horrors of war and the duality of man."
+    },
+    {
+        "MOVIEID": 15,
+        "TITLE": "The Princess Bride",
+        "RATING": "PG",
+        "RELEASEYEAR": 1987,
+        "PLOTSUMMARY": "While home sick in bed, a young boy's grandfather reads him a story called The Princess Bride."
+    },
+    {
+        "MOVIEID": 16,
+        "TITLE": "Raiders of the Lost Ark",
+        "RATING": "PG",
+        "RELEASEYEAR": 1981,
+        "PLOTSUMMARY": "In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before Adolf Hitler's Nazis can obtain its awesome powers."
+    },
+    {
+        "MOVIEID": 17,
+        "TITLE": "Indiana Jones and the Temple of Doom",
+        "RATING": "PG",
+        "RELEASEYEAR": 1984,
+        "PLOTSUMMARY": "In 1935, Indiana Jones arrives in India, still part of the British Empire, and is asked to find a mystical stone. He then stumbles upon a secret cult committing enslavement and human sacrifices in the catacombs of an ancient palace."
+    },
+    {
+        "MOVIEID": 18,
+        "TITLE": "Indiana Jones and the Last Crusade",
+        "RATING": "PG-13",
+        "RELEASEYEAR": 1989,
+        "PLOTSUMMARY": "In 1938, after his father Professor Henry Jones, Sr. goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against Adolf Hitler's Nazis again to stop them obtaining its powers."
+    },
+    {
+        "MOVIEID": 19,
+        "TITLE": "The Terminator",
+        "RATING": "R",
+        "RELEASEYEAR": 1984,
+        "PLOTSUMMARY": "A seemingly indestructible android is sent from 2029 to 1984 to assassinate a waitress, whose unborn son will lead humanity in a war against the machines, while a soldier from that war is sent to protect her at all costs."
+    },
+    {
+        "MOVIEID": 20,
+        "TITLE": "Who Framed Roger Rabbit",
+        "RATING": "PG",
+        "RELEASEYEAR": 1988,
+        "PLOTSUMMARY": "A toon-hating detective is a cartoon rabbit's only hope to prove his innocence when he is accused of murder."
+    },
+    {
+        "MOVIEID": 21,
+        "TITLE": "When Harry Met Sally...",
+        "RATING": "R",
+        "RELEASEYEAR": 1989,
+        "PLOTSUMMARY": "Harry and Sally have known each other for years, and are very good friends, but they fear sex would ruin the friendship."
+    },
+    {
+        "MOVIEID": 22,
+        "TITLE": "Labyrinth",
+        "RATING": "PG",
+        "RELEASEYEAR": 1986,
+        "PLOTSUMMARY": "A 16-year-old girl is given 13 hours to solve a labyrinth and rescue her baby brother when her wish for him to be taken away is granted by the Goblin King."
+    },
+    {
+        "MOVIEID": 23,
+        "TITLE": "Legend",
+        "RATING": "PG",
+        "RELEASEYEAR": 1985,
+        "PLOTSUMMARY": "A young man must stop the Lord of Darkness from both destroying daylight and marrying the woman he loves."
+    },
+    {
+        "MOVIEID": 24,
+        "TITLE": "Bill & Ted's Excellent Adventure",
+        "RATING": "PG",
+        "RELEASEYEAR": 1989,
+        "PLOTSUMMARY": "Two seemingly dumb teens set off on a quest to prepare the ultimate historical presentation with the help of a time machine."
+    },
+    {
+        "MOVIEID": 25,
+        "TITLE": "Top Gun",
+        "RATING": "PG",
+        "RELEASEYEAR": 1986,
+        "PLOTSUMMARY": "As students at the United States Navy's elite fighter weapons school compete to be best in the class, one daring young pilot learns a few things from a civilian instructor that are not taught in the classroom."
+    }
+]
