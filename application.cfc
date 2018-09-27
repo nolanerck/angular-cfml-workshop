@@ -8,6 +8,8 @@ component {
     this.sessionTimeout = CreateTimeSpan( 0, 2, 0, 0 );
     this.sessioncookie.httponly = true;
     this.sessioncookie.timeout = "10";
+    this.serialization.preserveCaseForStructKey = true;
+    this.passArrayByReference = true;
     this.datasources = {
         Movies = {
             url = "jdbc:derby:#variables.dbPath#;create=true;MaxPooledStatements=300", 

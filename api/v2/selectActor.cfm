@@ -1,14 +1,14 @@
 <cfsilent>
     <cfparam name="URL.actorid" type="integer" default=0>
     <cfquery name="getActors">
-        SELECT  ActorId
+        SELECT  ActorID
                 ,ActorName
                 ,BirthDate
                 ,BornInCity
         FROM tActors
         WHERE 1=1
         <cfif URL.actorid GT 0>
-            AND ActorId = <cfqueryparam value="#URL.actorid#" cfsqltype="integer">
+            AND ActorID = <cfqueryparam value="#URL.actorid#" cfsqltype="integer">
         </cfif>
     </cfquery>
 
