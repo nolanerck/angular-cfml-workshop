@@ -1,0 +1,104 @@
+1. Class Intro
+Introduce ourselves
+Maybe go around the room and ask students to introduce themselves too (depending on time and size).
+Class logistics:
+9 to 5
+morning break - 15ish minutes
+lunch - 1 hour
+afternoon break
+
+Quick poll of the room:
+Does everyone have the prerequisites installed?
+Is anyone NOT familiar with version control / source control / GitHub?
+(Any “yes” answers above, help them install SourceTree and setup an Atlassian account.)
+
+2. Why MVC? Why Frameworks?
+MVC gives your app structure
+CFIncludes leak data, not self documenting
+Dated technology, bad practice for most situations now
+Frameworks do some of the work for you
+Apps start to “write themselves”
+
+3. Module 1 - Look at a Legacy CFML app
+Go over the sections of code.
+Point out problem areas:
+Outdated technology / coding practices.
+Areas for improvement.
+Places the app isn’t organized.
+Are we repeating ourselves? (The DRY rule)
+Table-based HTML?
+Other issues?
+
+4. Why Use a Framework?
+Gives your code structure
+Apps start to write themselves
+Fewer questions about what code goes where
+
+5. Why not roll my own framework?
+No need to reinvent the wheel
+Take advantage of the expertise of others
+Your app doesn’t need anything special
+Industry proven frameworks are well documented
+Free training and support
+Less learning curve for new employees
+Transferable skills to other projects/companies
+
+6. Intro to MVC Pattern?
+Models
+Views
+Controllers
+(use Nolan’s restaurant metaphor and slides from “MVC With and Without a Framework” talk”
+
+7. Quick high-level look at Framework-1
+
+[LAB] 8. Refactor the SQL into CFCs
+Note that we can use these CFCs in our legacy app
+Models are not Framework specific. It’s a “design pattern” all by itself that works without anything else
+
+[LAB] 9. Install Framework-1
+Download the file(s)
+Connect it to our Application.CFC
+Try out an example, make sure it runs
+Go over the naming conventions for Framework-1
+
+[LAB] 10. Controllers and Views
+Start with the List Beer and List Brewery pieces
+Wire up the Models, pass the query results into RC scope
+Hook up the Views to use the RC scope and get the query results
+Build the HREFs to the “edit” pages. Note the buildURL() function()
+
+[LAB] 11. Controllers and Views, pt 2
+Build the Edit Beer and Edit Brewery View pages and “details” functions in the controllers
+Build the “save beer” and “save brewery” controller functions
+use fw.redirect to point back to list pages after saving
+
+[LAB] 12. Server side logic for validation
+Framework-1 “flash scope”
+use fw.redirect() to pass variables on as needed
+What else should we go over here?
+
+[LAB] 13. Layouts
+Maybe add an “about” page to the app
+This us un-restricted content, just describes the app
+Now that we have both restricted and unrestricted content, we can have 2 layouts, 1 for each
+Show the /layouts folder
+Show how to set different layouts for pages/subsystems in Framework-1
+
+[LAB] 14. Login / Log out functionality
+Use a Subsytem? 
+Use the before() handler?
+
+15. Dependency Injection / AOP
+Maybe use my slide deck from “Dependency Injection: Why Is It Awesome?” for a crash course?
+
+[LAB] 16. Dependency Injection
+Intro to DI/1, basic features and syntax
+Use DI/1 to load up Models for List Beer and List Brewery pages
+Note that other pages still use regular CreateObject, both can co-exist, no problem.
+
+[LAB] 17. Dependency Injection, p2
+Wire up Edit Pages to use DI/1 as well
+Wire up Security / login to use DI/1
+
+(Optional module if we have time to write it: Covert table-based HTML into something modern like Bootstrap)
+
