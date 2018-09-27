@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <cfinclude template="/includes/header.cfm">
-        <title>Legacy-CFML-To-MVC</title>
+        <title>Angular + CFML</title>
     </head>
     <body role="document">
         <div class="container" role="main">
