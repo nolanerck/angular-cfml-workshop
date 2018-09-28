@@ -9,7 +9,7 @@ component {
     this.sessioncookie.timeout = "10";
     this.serialization.preserveCaseForStructKey = true;
     this.passArrayByReference = true;
-    this.mappings = { "/model" : expandPath( "../sharedModel" ) };
+    this.mappings = { "/sharedModel" : expandPath( "../sharedModel" ) };
     this.datasources = {
         Movies = {
             url = "jdbc:derby:#variables.dbPath#;create=true;MaxPooledStatements=300", 

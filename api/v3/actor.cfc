@@ -1,7 +1,7 @@
 <cfcomponent displayname="Actor web service" output="true">
 
-    <cfset variables.actorService = new model.actorService()>
-    <cfset variables.movieToActorService = new model.movieToActorService()>
+    <cfset variables.actorService = new sharedModel.actorService()>
+    <cfset variables.movieToActorService = new sharedModel.movieToActorService()>
 
     <cffunction name="getActor" access="remote" returntype="array" returnformat="JSON">
         <cfargument name="actorid" type="numeric" default="0">

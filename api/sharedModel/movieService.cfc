@@ -1,6 +1,6 @@
 <cfcomponent displayname="tMovies database table interactions" output="false">
 
-    <cfset variables.movieLinkService = new movieToActor()>
+    <cfset variables.movieToActorService = new movieToActorService()>
 
     <cffunction name="getAll" access="public" returntype="query">
         <cfset var q = "">
@@ -122,7 +122,7 @@
                 WHERE MovieID = <cfqueryparam value="#arguments.id#" cfsqltype="INTEGER">
             </cfquery>
 
-            <cfset movieToActor.delete( movieid = id )>
+            <cfset movieToActorService.delete( movieid = id )>
             <cfreturn 1>
         <cfelse>
             <cfreturn 0>
