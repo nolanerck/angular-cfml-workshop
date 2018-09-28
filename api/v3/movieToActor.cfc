@@ -1,6 +1,6 @@
 <cfcomponent displayname="MovieToActor web service" output="true">
 
-    <cfset variables.movieLinkService = new model.movieToActor()>
+    <cfset variables.movieToActorService = new model.movieToActorService()>
 
     <cffunction name="getMovieToActor" access="remote" returntype="array" returnformat="JSON">
         <cfargument name="id" type="numeric" default="0">
@@ -8,9 +8,9 @@
         <cfset var data = ArrayNew(1)>
 
         <cfif id EQ 0>
-            <cfset q = movieLinkService.getAll()>
+            <cfset q = movieToActorService.getAll()>
         <cfelse>
-            <cfset q = movieLinkService.getById( arguments.id )>
+            <cfset q = movieToActorService.getById( arguments.id )>
         </cfif>
 
         <cfif q.recordCount>
@@ -37,7 +37,7 @@
     <cffunction name="addMovieToActor" access="remote" returntype="string" returnformat="JSON">
         <cfargument name="movieid" type="numeric" default="0">
         <cfargument name="actorid" type="numeric" default="0">
-        <cfset var data = movieLinkService.insert( arguments.movieid, arguments.actorid )>
+        <cfset var data = movieToActorService.insert( arguments.movieid, arguments.actorid )>
 
         <cfcontent type="application/json">
         <cfheader statuscode="201" statustext="Created">
@@ -56,14 +56,14 @@
             <cfset data = "One or more arguments are missing or invalid.">
         <cfelse>
             <cfif id GT 0>
-                <cfset var result = movieLinkService.delete( id = arguments.id )>
+                <cfset var result = movieToActorService.delete( id = arguments.id )>
             <cfelseif movieid GT 0 AND actorid GT 0>
-                <cfset var result = movieLinkService.delete( movieid = arguments.movieid,
+                <cfset var result = movieToActorService.delete( movieid = arguments.movieid,
                     actorid = arguments.actorid )>
             <cfelseif movieid GT 0>
-                <cfset var result = movieLinkService.delete( movieid = arguments.movieid )>
+                <cfset var result = movieToActorService.delete( movieid = arguments.movieid )>
             <cfelse>
-                <cfset var result = movieLinkService.delete( actorid = arguments.actorid )>
+                <cfset var result = movieToActorService.delete( actorid = arguments.actorid )>
             </cfif>
             <cfif result GT 0>
                 <cfset statuscode = "204">

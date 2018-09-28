@@ -1,7 +1,7 @@
 <cfcomponent displayname="Movie web service" output="true">
 
-    <cfset variables.movieService = new model.movie()>
-    <cfset variables.movieLinkService = new model.movieToActor()>
+    <cfset variables.movieService = new model.movieService()>
+    <cfset variables.movieToActorService = new model.movieToActorService()>
 
     <cffunction name="getMovie" access="remote" returntype="array" returnformat="JSON">
         <cfargument name="movieid" type="numeric" default="0">
@@ -17,7 +17,7 @@
         <cfif q.recordCount>
             <cfloop query="q">
                 <cfset var movie = StructNew()>
-                <cfset var movieLinks = movieLinkService.getByMovieId( q.MovieID )>
+                <cfset var movieLinks = movieToActorService.getByMovieId( q.MovieID )>
                 <cfset actorIds = valueArray( movieLinks, "ActorID" )>
 
                 <cfset movie[ "MovieID" ] = q.MovieID>
