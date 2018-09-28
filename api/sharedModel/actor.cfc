@@ -1,5 +1,7 @@
 <cfcomponent displayname="tActors database table interactions" output="false">
 
+    <cfset variables.movieLinkService = new movieToActor()>
+
     <cffunction name="getAll" access="public" returntype="query">
         <cfset var q = "">
 
@@ -53,9 +55,8 @@
         <cfargument name="actorname" type="string" default="">
         <cfargument name="birthdate" type="date" default="">
         <cfargument name="bornincity" type="string" default="">
-        <cfset var actorExists = getById( id ).recordcount GT 0>
 
-        <cfif actorExists>
+        <cfif getById( id ).recordcount GT 0>
             <cfquery>
                 UPDATE tActors
                 SET ActorName = <cfqueryparam value="#Trim( arguments.actorname )#" cfsqltype="VARCHAR">,
@@ -77,9 +78,8 @@
         <cfargument name="rating" type="string" default="">
         <cfargument name="releaseyear" type="integer" default="0">
         <cfargument name="plotsummary" type="string" default="">
-        <cfset var actorExists = getById( id ).recordcount GT 0>
         
-        <cfif arguments.id GT 0 AND actorExists>
+        <cfif arguments.id GT 0 AND getById( id ).recordcount GT 0>
             <cfquery>
                 UPDATE tActors
                 SET ActorName = <cfqueryparam value="#Trim( arguments.actorname )#" cfsqltype="VARCHAR">,
@@ -107,21 +107,17 @@
 
     <cffunction name="delete" access="public" returntype="numeric">
         <cfargument name="id" type="numeric" required="true">
-        <cfset var actorExists = getById( id ).recordcount GT 0>
 
-        <cfif actorExists>
+        <cfif getById( id ).recordcount GT 0>
             <cfquery>
                 DELETE FROM tActors
                 WHERE ActorID = <cfqueryparam value="#arguments.id#" cfsqltype="INTEGER">
             </cfquery>
 
-            <cfquery>
-                DELETE FROM tMoviesToActors
-                WHERE ActorID = <cfqueryparam value="#arguments.id#" cfsqltype="INTEGER">
-            </cfquery>
+            <cfset movieToActor.delete( actorid = id )>
             <cfreturn 1>
         <cfelse>
-            <cfreturn -1>
+            <cfreturn 0>
         </cfif>
     </cffunction>
     

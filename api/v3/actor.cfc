@@ -1,6 +1,7 @@
 <cfcomponent displayname="Actor web service" output="true">
 
     <cfset variables.actorService = new model.actor()>
+    <cfset variables.movieLinkService = new model.movieToActor()>
 
     <cffunction name="getActor" access="remote" returntype="array" returnformat="JSON">
         <cfargument name="actorid" type="numeric" default="0">
@@ -15,12 +16,17 @@
 
         <cfif q.recordCount>
             <cfloop query="q">
-                <cfset var row = StructNew()>
-                <cfset row[ "ActorID" ] = q.ActorID>
-                <cfset row[ "ActorName" ] = q.ActorName>
-                <cfset row[ "BirthDate" ] = q.BirthDate>
-                <cfset row[ "BornInCity" ] = q.BornInCity>
-                <cfset arrayAppend( data, row )>
+                <cfset var actor = StructNew()>
+                <cfset var movieLinks = movieLinkService.getByActorId( q.ActorID )>
+                <cfset var movieIds = valueArray( movieLinks, "MovieID" )>
+
+                <cfset actor[ "ActorID" ] = q.ActorID>
+                <cfset actor[ "ActorName" ] = q.ActorName>
+                <cfset actor[ "BirthDate" ] = q.BirthDate>
+                <cfset actor[ "BornInCity" ] = q.BornInCity>
+                <cfset actor[ "MovieIDs"] = movieIds>
+
+                <cfset arrayAppend( data, actor )>
             </cfloop>
             <cfset statuscode = "200">
             <cfset statustext = "OK">
