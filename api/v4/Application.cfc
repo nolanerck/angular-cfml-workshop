@@ -34,11 +34,20 @@ component extends="framework.one" output="false" {
         /*
         ** This bit here maps standard REST API URL paths to the actual controllers
         ** and methods within this Framework-One application.  It will also parse
-        ** the url and identify the id value being passed in the URL
+        ** the url and identify the id value being passed in the URL.
+        ** See http://framework-one.github.io/documentation/4.2/developing-applications.html#url-routes
+        ** for more information.
         */
         routes = [ 
             { "$RESOURCES" = "actor,movie,movieToActor" }
-        ]
+        ],
+        /* 
+        ** This setting allows FW/1 to accept JSON data or URL-encoded form data
+        ** for POST or PUT actions. 
+        ** See http://framework-one.github.io/documentation/4.2/developing-applications.html#controllers-for-rest-apis
+        ** for more information.
+        */
+        decodeRequestBody = true
     };
 
     public void function setupSession() {  }
