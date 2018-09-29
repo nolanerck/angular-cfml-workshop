@@ -2,7 +2,7 @@ component extends="framework.one" output="false" {
     
     variables.dbPath = expandPath( "/database/Derby/" );
 
-    this.name = hash( getBaseTemplatePath() );
+    this.name = hash( getCurrentTemplatePath() );
     this.applicationTimeout = CreateTimeSpan( 1, 0, 0, 0 );
     this.sessionManagement = true;
     this.sessionTimeout = CreateTimeSpan( 0, 2, 0, 0 );
