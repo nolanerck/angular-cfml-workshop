@@ -4,10 +4,26 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
     property actorService;
     property movieToActorService;
 
+    // FW/1 will automatically run the before() function before any controller
+    // functions are run
+    public void function before( rc ){
+    }
+
+    // FW/1 will automatically run the after() function after any controller 
+    // functions are run
+    public void function after( rc ){
+        rc.data = rc.data ?: "";
+        rc.statusCode = rc.statusCode ?: 200;
+
+        // renderData() is a FW/1 utility function to serialize/render data for 
+        // REST APIs
+        fw.renderData().data( rc.data ).type( 'json').statusCode( rc.statusCode );
+    }
+
     public void function default( rc ){
         var q = actorService.getAll();
-        var data = [];
-        data = q.reduce( function( prev, row ){
+
+        rc.data = q.reduce( function( prev, row ){
             var movieLinks = movieToActorService.getByActorID( row.ActorID );
             var movieIDs = valueArray( movieLinks, "MovieID" );
             var actor = {
@@ -19,22 +35,17 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
             };
             return prev.append( actor );
         }, []);
-
-        // A Framework-One utility method to serialize/render data for REST APIs
-        fw.renderData().data( data ).type( 'json' );
     }
 
     public void function show( rc ){
-        // Framework-One automatically finds the id value in the URL and puts it
-        // in the rc.id struct key
-        var data = "";
-        var statusCode = 200;
+        // If FW/1 is configured with routes, it will automatically find the 
+        // id value in the URL and put it in the rc.id struct key
         var q = actorService.getById( rc.id );
 
         if ( q.recordCount ) {
             var movieLinks = movieToActorService.getByActorID( rc.id );
             var movieIDs = valueArray( movieLinks, "MovieID" );
-            data = {
+            rc.data = {
                 "ActorId" : q.ActorID,
                 "ActorName" : q.ActorName,
                 "BirthDate" : q.BirthDate,
@@ -43,46 +54,52 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
             };
         }
         else {
-            statusCode = 404;
+            rc.statusCode = 404;
         }
-        fw.renderData().data( data ).type( 'json' ).statusCode( statusCode );
     }
 
     public void function create( rc ){
-        var statusCode = 201;
-        var result = "";
 
         try {
-            result = actorService.insert( rc.actorname, rc.birthdate, rc.bornincity );
+            rc.data = actorService.insert( rc.actorname, rc.birthdate, rc.bornincity );
+            rc.statusCode = 201;
         }
         catch ( any e ) {
-            statusCode = 400;
+            rc.statusCode = 400;
         }
-
-        fw.renderdata().data( result ).type( 'json' ).statusCode( statusCode );
     }
 
-    /* data must be sent as x-www-form-urlencoded data with "content-type" header
-    ** set to "application/x-www-form-urlencoded", or as json data with 
-    ** "content-type" header set to "application/json"
+    /* 
+    ** Data must be sent in the request as x-www-form-urlencoded data with 
+    ** "content-type" header set to "application/x-www-form-urlencoded", or as 
+    ** json data with "content-type" header set to "application/json"
     */
     public void function update( rc ){
-        var result = "";
-        var data = "";
+        var q = actorService.getById( rc.id );
+            
+        // if the REST request didn't include all of the actor arguments/fields
+        // then supply them from the current database record
+        rc.actorname = structKeyExists( rc, "actorname" ) ? rc.actorname : q.actorname;
+        rc.birthdate = structKeyExists( rc, "birthdate") ? rc.birthdate : q.birthdate;
+        rc.bornincity = structKeyExists( rc, "bornincity") ? rc.bornincity : q.bornincity;
 
         try {
-            result = actorService.update( rc.id, rc.actorname, rc.birthdate, rc.bornincity );
-            var statusCode = result > 0 ? 204 : 404;
+            var result = actorService.update( rc.id, rc.actorname, rc.birthdate, rc.bornincity );
+            rc.statusCode = result > 0 ? 204 : 404;
         }
         catch ( any e ) {
-            writeDump( var=e, output="console" );
-            var statusCode = 400;
+            rc.statusCode = 400;
         }
-
-        fw.renderdata().data( data ).type( 'json' ).statusCode( statusCode );
     }
 
     public void function destroy( rc ){
-        
+
+        try {
+            var result = actorService.delete( rc.id );
+            rc.statusCode = result > 0 ? 204 : 404;
+        }
+        catch ( any e ) {
+            rc.statusCode = 400;
+        }
     }
 }
