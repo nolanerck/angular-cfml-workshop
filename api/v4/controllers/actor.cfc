@@ -1,5 +1,7 @@
 component name="Actor REST Endpoint"  accessors="true" output="false" {
-    
+
+    // FW/1 will use its dependency injection framework (DI/1) to find and
+    // inject the components defined below as properties
     property fw;
     property actorService;
     property movieToActorService;
