@@ -8,7 +8,7 @@ component extends="taffy.core.resource" taffy:uri="/actor/{actorId}" accessors="
         var q = actorService.getById( actorId );
 
         if ( q.recordcount ) {
-            var data = data = q.reduce( function( prev, row ){
+            var data = q.reduce( function( prev, row ){
                 var movieLinks = movieToActorService.getByActorID( row.ActorID );
                 var movieIDs = valueArray( movieLinks, "MovieID" );
                 var actor = {
