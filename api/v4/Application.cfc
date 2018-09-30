@@ -41,6 +41,15 @@ component extends="framework.one" output="false" {
         routes = [ 
             { "$RESOURCES" = "actor,movie,movieToActor" }
         ],
+        resourceRouteTemplates = [
+            { method = 'get', httpMethods = [ '$GET' ] },
+            { method = 'post', httpMethods = [ '$POST' ] },
+            { method = 'get', httpMethods = [ '$GET' ], includeId = true },
+            { method = 'put', httpMethods = [ '$PUT' ], includeId = true },
+            { method = 'patch', httpMethods = [ '$PATCH' ], includeId = true },
+            { method = 'delete', httpMethods = [ '$DELETE' ], includeId = true },
+            { method = 'error', httpMethods = [ '$*' ] }
+        ],
         /* 
         ** This setting allows FW/1 to accept JSON data or URL-encoded form data
         ** for POST or PUT actions. 

@@ -6,52 +6,51 @@ component name="Movie REST Endpoint"  accessors="true" output="false" {
     property movieService;
     property movieToActorService;
 
-    public void function default( rc ){
-        var q = movieService.getAll();
+    public void function get( rc ){
+        if ( structKeyExists( rc, "id" ) ){
+            var q = movieService.getById( rc.id );
 
-        var data = q.reduce( function( prev, row ){
-            var movieLinks = movieToActorService.getByMovieID( row.MovieID );
-            var actorIDs = valueArray( movieLinks, "ActorID" );
-            var movie = {
-                "MovieId" : row.MovieID,
-                "Title" : row.Title,
-                "Rating" : row.Rating,
-                "ReleaseYear" : row.ReleaseYear,
-                "PlotSummary" : row.PlotSummary,
-                "ActorIDs" : actorIDs
-            };
-            return prev.append( movie );
-        }, []);
-
-        // renderData() is a FW/1 utility function to serialize/render data for 
-        // REST APIs
-        fw.renderData().data( data ).type( 'json');
-    }
-
-    public void function show( rc ){
-        // If FW/1 is configured with routes, it will automatically find the 
-        // id value in the URL and put it in the rc.id struct key
-        var q = movieService.getById( rc.id );
-
-        if ( q.recordCount ) {
-            var movieLinks = movieToActorService.getByMovieID( rc.id );
-            var actorIDs = valueArray( movieLinks, "ActorID" );
-            rc.data = {
-                "MovieId" : q.MovieID,
-                "Title" : q.Title,
-                "Rating" : q.Rating,
-                "ReleaseYear" : q.ReleaseYear,
-                "PlotSummary" : q.PlotSummary,
-                "ActorIDs" : actorIDs
-            };
-            fw.renderData().data( data ).type( 'json' );
+            if ( q.recordCount ) {
+                var movieLinks = movieToActorService.getByMovieID( rc.id );
+                var actorIDs = valueArray( movieLinks, "ActorID" );
+                var data = {
+                    "MovieId" : q.MovieID,
+                    "Title" : q.Title,
+                    "Rating" : q.Rating,
+                    "ReleaseYear" : q.ReleaseYear,
+                    "PlotSummary" : q.PlotSummary,
+                    "ActorIDs" : actorIDs
+                };
+                fw.renderData().data( data ).type( 'json' );
+            }
+            else {
+                fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
+            }
         }
         else {
-            fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
+            var q = movieService.getAll();
+
+            var data = q.reduce( function( prev, row ){
+                var movieLinks = movieToActorService.getByMovieID( row.MovieID );
+                var actorIDs = valueArray( movieLinks, "ActorID" );
+                var movie = {
+                    "MovieId" : row.MovieID,
+                    "Title" : row.Title,
+                    "Rating" : row.Rating,
+                    "ReleaseYear" : row.ReleaseYear,
+                    "PlotSummary" : row.PlotSummary,
+                    "ActorIDs" : actorIDs
+                };
+                return prev.append( movie );
+            }, []);
+
+            // renderData() is a FW/1 utility function to serialize/render data for 
+            // REST APIs
+            fw.renderData().data( data ).type( 'json');
         }
     }
 
-    public void function create( rc ){
+    public void function post( rc ){
 
         try {
             var result = movieService.insert( rc.title, rc.rating, rc.releaseyear,
@@ -68,24 +67,44 @@ component name="Movie REST Endpoint"  accessors="true" output="false" {
     }
 
     /* 
-    ** Data must be sent in the request as x-www-form-urlencoded data with 
-    ** "content-type" header set to "application/x-www-form-urlencoded", or as 
-    ** json data with "content-type" header set to "application/json"
+    ** Data for put and patch must be sent in the request as x-www-form-urlencoded 
+    ** data with "content-type" header set to "application/x-www-form-urlencoded", 
+    ** or as json data with "content-type" header set to "application/json"
     */
-    public void function update( rc ){
+    public void function put( rc ){
+        if ( !structKeyExists( rc, "title" ) || !structKeyExists( rc, "rating" )
+              || !structKeyExists( rc, "releaseyear" ) 
+              || !structKeyExists( rc, "plotsummary" ) ) {
+            fw.renderData().data( '' ).type( 'json').statusCode( 400 );
+            return;
+        }
+
+        var q = movieService.getById( rc.id );
+
+        if ( q.recordCount ) {
+            try {
+                movieService.update( rc.id, rc.title, rc.rating, rc.releaseyear, rc.plotsummary );
+                fw.renderData().data( '' ).type( 'json' ).statusCode( 204 );
+            }
+            catch ( any e ) {
+                fw.renderData().data( '' ).type( 'json' ).statusCode( 400 );
+            }
+        }
+    }
+
+    public void function patch( rc ){
         var q = movieService.getById( rc.id );
 
         if ( q.recordCount ) {
             // if the REST request didn't include all of the movie arguments/fields
             // then supply them from the current database record
-            rc.title = structKeyExists( rc, "title" ) ? rc.title : q.Title;
-            rc.rating = structKeyExists( rc, "rating") ? rc.rating : q.Rating;
-            rc.releaseyear = structKeyExists( rc, "releaseyear") ? rc.releaseyear : q.ReleaseYear;
-            rc.plotsummary = structKeyExists( rc, "plotsummary") ? rc.plotsummary : q.PlotSummary;
+            var _title = structKeyExists( rc, "title" ) ? rc.title : q.Title;
+            var _rating = structKeyExists( rc, "rating") ? rc.rating : q.Rating;
+            var _releaseyear = structKeyExists( rc, "releaseyear") ? rc.releaseyear : q.ReleaseYear;
+            var _plotsummary = structKeyExists( rc, "plotsummary") ? rc.plotsummary : q.PlotSummary;
 
             try {
-                movieService.update( rc.id, rc.title, rc.rating, rc.releaseyear,
-                    rc.plotsummary );
+                movieService.update( rc.id, _title, _rating, _releaseyear, _plotsummary );
                 fw.renderData().data( '' ).type( 'json' ).statusCode( 204 );
                 }
             catch ( any e ) {
@@ -97,7 +116,7 @@ component name="Movie REST Endpoint"  accessors="true" output="false" {
         }
     }
 
-    public void function destroy( rc ){
+    public void function delete( rc ){
         var result = movieService.delete( rc.id );
 
         if ( result > 0 ) {
