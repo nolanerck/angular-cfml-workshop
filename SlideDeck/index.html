@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular + CFML Workshop</title>
+		<link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="../assets/reveal/css/reveal.css">
+		<link rel="stylesheet" href="../assets/reveal/css/theme/moon.css" id="theme">
+
+		<style>
+			.reveal h2
+			{ 
+				text-transform: none; 
+				font-size: 60px;
+			}
+
+			.reveal ul li, .reveal p
+			{
+				font-size: 34px;
+			}
+
+			.highlight 
+			{ 
+				color: green 
+			}
+
+			.align-left
+			{
+				text-align: left;
+			}
+		</style>		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Angular + CFML Workshop</h2>
+					<p>Nolan Erck / Carl Von Stetten</p>
+				</section>
+
+				<section>
+					<h2>About Carl</h2>
+					<ul>
+						<li>Geographic Information Systems (GIS) Analyst for a water resources/reclamation agencyin in Northern California
+							<ul>
+								<li>Working with ColdFusion since 2002 (CF 4.5)</li>
+								<li>Lots of spatial and non-spatial data modeling, data management, intranet application development</li>
+							</ul>
+						</li>
+						<li>Tools I Use:
+							<ul>
+								<li>Adobe ColdFusion, JavaScript (incl. jQuery &amp; Bootstrap), Microsoft SQL Server, Python, Esri ArcGIS Desktop and Server, Geocortex, Safe FME (spatial ETLs), etc…</li>
+							</ul>
+						</li>
+						<li style="padding-bottom: 1 em;">Adobe Community Professional for ColdFusion</li>
+						<li>Unreformed DIY remodeler</li>
+						<li>Passionate about craft beer! (should become obvious in a few minutes)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>About Nolan</h2>
+					<ul>
+						<li>Owner &amp; Chief Consultant at South of Shasta
+							<ul>
+								<li>Software Development, Training</li>
+							</ul>
+						</li>
+						<li>OpenTable, ZenDesk, Turn It In, AcademyX, HackerLab</li>
+						<li>ColdFusion, C++, Java, jQuery, PHP, .NET, HTML5, Android, SQL, etc...</li>
+						<li>Manager, SacInteractive User Group</li>
+						<li>Reformed Video Game Developer (Grim Fandango, SimPark, StarWars Rogue Squadron, etc)</li>
+						<li>Music Junkie</li>
+					</ul>
+				</section>
+
+<!--				<section>
+					<h2>Slide deck and code samples are here:</h2>
+					<p>github.com/nolanerck<br />legacy-cfml-to-mvc-training</p>
+				</section>
+-->
+				<section>
+					<h2>Today's Agenda</h2>
+					<ul>
+						<li>Class Intro</li>
+						<li>Why JavaScript Frameworks?</li>
+						<li>Why Angular</li>
+						<li>Why not roll my own framework?</li>
+						<li>Intro to MVC Pattern?</li>
+						<li>Intro to MVVM Pattern</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Things you can do for maximum value</h2>
+					<ul>
+						<li>Ask questions!</li>
+						<li>Cheat wildly!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Tools Installed?</h2>
+					<ul>
+						<li>CommandBox?</li>
+						<li>Node.js?</li>
+						<li>Code Editor?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Set Up the Project Files</h2>
+					<ul>
+						<li>Clone files from GitHub:
+							<br />
+							github.com/nolanerck/legacy-cfml-to-mvc-training
+						</li>
+						<li>
+							In your project folder:
+							<br />
+							box install
+							<br />
+							box server start
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Before we get started</h2>
+					<ul>
+						<li>Everyone should know...</li>
+						<li>CFComponent</li>
+						<li>How to create and use via CreateObject()</li>
+						<li>Some understanding of how a component works</li>
+						<li>One more thing you need to know...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>OO Programming is Hard</h2>
+					<ul>
+						<li>Very different from a top-down procedural script</li>
+						<li>Several new concepts and design considerations</li>
+						<li>Some of it is very confusing at first</li>
+						<li>That's NORMAL</li>
+					</ul>
+					<p>...but this is the way development is moving<br />on pretty much every platform</p>
+				</section>
+
+				<section>
+					<h2>CFComponent</h2>
+					<ul>
+						<li>ColdFusion's OO construct</li>
+						<li>Same as “class” or “object” in Java, C++, etc</li>
+						<li>Several calling conventions – cfinvoke, cfobject, CreateObject, new</li>
+						<li><em>Typically</em> includes an “init” method for setup but that's not technically required</li>
+						<li><a href="/CFCExample/index.cfm">CFC Example</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Why MVC Frameworks?</h2>
+					<ul>
+						<li>CFIncludes: leak data</li>
+						<li>CFIncludes: not self documenting</li>
+						<li>CFIncludes: dated technology, bad practice for most situations now</li>
+						<li><a href="/CFIncludeLeak/index.cfm">Example</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Let's Look at a Legacy CFML App</h2>
+					<ul>
+						<li><a href="/LegacyApp/index.cfm">Legacy App Example</a></li>
+						<li>Go over the sections of code.</li>
+						<li>Point out problem areas.</li>
+						<li>Outdated technology? Coding practices?</li>
+						<li>Areas for improvement?</li>
+						<li>Places the app isn’t organized?</li>
+						<li>Are we repeating ourselves? (The DRY rule)</li>
+						<li>Other issues?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Why Use a Framework?</h2>
+					<ul>
+						<li>MVC gives your app structure</li>
+						<li>Frameworks do some of the work for you</li>
+						<li>Fewer questions about what code goes where</li>
+						<li>Apps start to “write themselves”</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Why not roll my own framework?</h2>
+					<ul>
+						<li>No need to reinvent the wheel</li>
+						<li>Take advantage of the expertise of others</li>
+						<li>Your app doesn’t need anything special</li>
+						<li>Industry proven frameworks are well documented</li>
+						<li>Free training and support</li>
+						<li>Less learning curve for new employees</li>
+						<li>Transferable skills to other projects/companies</li>
+						<li>No extra "job security" in obscurity</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is Model View Controller?</h2>
+					<ul>
+						<li>Not ColdFusion specific</li>
+						<li>Common design pattern used in other OO languages</li>
+						<li>What's a design pattern?
+							<ul>
+								<li>$6 word for “a common problem solved by organizing objects in a certain way”.</li>
+								<li>Like for() loops and arrays but with objects and methods.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is Model View Controller?</h2>
+					<ul>
+						<li>Used within CF frameworks (Framework-1, ColdBox, Model-Glue, Mach-ii, etc)</li>
+						<li>Lots of this info/concepts transfers to other OO languages</li>
+						<li>Basically a way of organizing and calling your code that “separates the concerns”
+							<ul>
+								<li>Display code, controlling flow, data/business logic.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>View</h2>
+					<ul>
+						<li>The part of the app that users, well, view</li>
+						<li>HTML, CSS, JavaScript</li>
+						<li><em>Some</em> CF for display logic but that's it.
+							<ul>
+								<li>Toggle the “log in / log out” button, etc</li>
+								<li>Alternating page row colors in a table (but really, do that in CSS!)</li>
+							</ul>
+						</li>
+						<li>No business logic, no SQL code</li>
+						<li>The menu at a restaurant</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Model</h2>
+					<ul>
+						<li>Short for “data model” (kind of)</li>
+						<li>Where all (yes all) your SQL code lives</li>
+						<li>Doesn't have to be a database
+							<ul>
+								<li>Whatever your storage medium is (Log files, XML, etc)</li>
+							</ul>
+						</li>
+						<li>Business logic mostly lives here too</li>
+						<li>The kitchen / chef at a restaurant</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Controller</h2>
+					<ul>
+						<li>Sits between the Model and the View</li>
+						<li>No HTML output, no SQL</li>
+						<li>Small bits of “logic” for <em>controlling</em> the flow of your application
+							<ul>
+								<li>User clicks “save” button, save action happens, user is then directed to the next page in the app.</li>
+							</ul>
+						</li>
+						<li>Like the waiter in a restaurant</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Model View Controller</h2>
+					<div class='col-md-4'>
+						<p><strong>View</strong></p>
+						<p>
+							HTML<br />
+							JavaScript<br />
+							CSS<br />
+							UI-related logic<br />
+							No business logic!<br />
+							No SQL!<br />
+						</p>
+					</div>
+					<div class='col-md-4'>
+						<p><strong>Controller</strong></p>
+						<p>
+							Glues the View and Model together<br />
+							Logic for controlling flow of the app<br />
+							“Controls” where the user goes next<br />
+						</p>
+					</div>
+					<div class='col-md-4'>
+						<p><strong>Model</strong></p>
+						<p>
+							SQL<br />
+							Business logic<br />
+							LDAP<br />
+							XML I/O<br />
+							etc<br />
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>MVC - Pros</h2>
+					<ul>
+						<li>Promotes code reuse</li>
+						<li>Allows multiple people to work on code at the same time
+							<ul>
+								<li>1 works on UI (View), 1 works on app flow,<br />1 on SQL queries, etc</li>
+							</ul>
+						</li>
+						<li>Non-framework, non-language specific</li>
+						<li>Very common pattern/nomenclature
+							<ul>
+								<li>“Model” means the same thing in Java,<br />.NET, Ruby, C++ and so on</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>MVC - Cons</h2>
+					<ul>
+						<li>A change in style from spaghetti code, or even good procedural programming</li>
+						<li>May take time to “click”</li>
+						<li>“More typing” to get the 3 layers up and running
+							<ul>
+								<li>But the code is more reusable</li>
+								<li>And seriously, this is lame excuse</li>
+								<li>IDE, plugins, various tools to help write code for you</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Models</h2>
+				</section>
+
+				<section>
+					<h2>Models</h2>
+					<ul>
+						<li>Let's look at the legacy app</li>
+						<li>Refactor the SQL code into CFCs</li>
+						<li>Note that we can use these CFCs in our legacy app</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Models</h2>
+					<ul>
+						<li>Note that we can use these CFCs in our legacy app</li>
+						<li>Models are not Framework specific. It’s a “design pattern” all by itself that works without anything else</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Models - LAB 1</h2>
+					<ul>
+						<li><em>On Your Own:</em> Use the SQL code from LegacyApp, build 2 CFCs. One for Beer, one for Brewery. Both CFCs should:</li>
+						<li>
+							have an init() method that does "return this"<br />
+							getAll() - get all the entries from Brewery<br />
+							getById( id ) - get specific entry from Brewery<br />
+							save() - saves new or existing Brewery entries<br />
+							delete( id ) - deletes the specified entry<br />
+							(and the same design for the Beer CFC)
+						</li>
+						<li>Test the code!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Installing Framework-1</h2>
+					<ul>
+						<li>Download the file(s)</li>
+						<li>Connect it to our Application.CFC</li>
+						<li>Try out an example, make sure it runs</li>
+						<li>Go over the naming conventions for Framework-1</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Framework-1 - LAB 2</h2>
+					<ul>
+						<li><em>On Your Own:</em> Make a new folder and set up a Framework-1 app.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Controllers and Views</h2>
+				</section>
+
+				<section>
+					<h2>Controllers and Views - LAB 3</h2>
+				</section>
+
+				<section>
+					<h2>Controllers and Views, Part 2</h2>
+				</section>
+
+				<section>
+					<h2>Controllers and Views - LAB 4</h2>
+				</section>
+
+				<section>
+					<h2>Server Side Validation</h2>
+				</section>
+
+				<section>
+					<h2>Server Side Validation - LAB 5</h2>
+				</section>
+
+				<section>
+					<h2>Layouts</h2>
+				</section>
+
+				<section>
+					<h2>Layouts - LAB 6</h2>
+				</section>
+
+				<section>
+					<h2>Subsystems</h2>
+				</section>
+
+				<section>
+					<h2>Subsystems - LAB 7</h2>
+				</section>
+
+				<section>
+					<h2>Dependency Injection - Slides</h2>
+				</section>
+
+				<section>
+					<h2>Dependency Injection - DI/1 Intro</h2>
+				</section>
+
+				<section>
+					<h2>Dependency Injection - LAB 8</h2>
+				</section>
+
+				<section>
+					<h2>Dependency Injection in Framework-1</h2>
+				</section>
+
+				<section>
+					<h2>Dependency Injection - LAB 9</h2>
+				</section>
+
+				<section>
+					<h2>Real World Angular + CFML Tips</h2>
+					<ul>
+						<li>Hacking the Trace output</li>
+						<li>DI/1 With Subsystems</li>
+						<li>Partial Views</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Other Resources</h2>
+					<ul>
+						<li>South of Shasta - onsite and remote training</li>
+						<li>angular.io</li>
+						<li>Talk to people at the conference!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Questions? Comments?</h2>
+					<ul>
+						<li>southofshasta.com</li>
+						<li>nolan@southofshasta.com</li>
+						<li>Twitter: @southofshasta</li>
+						<li>Github: nolanerck</li>
+					</ul>
+					<ul>
+						<li>carl.vonstetten1@gmail.com</li>
+						<li>Twitter: @cfvonner</li>
+						<li>Github: cfvonner</li>
+					</ul>
+					<p>Thanks!</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../assets/Reveal/js/reveal.js"></script>
+		<script>
+			Reveal.initialize();
+
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../assets/reveal/css/print/pdf.css' : '../assets/reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</body>
+</html>
