@@ -1,0 +1,8 @@
+{
+    "dependencies":{
+        "fw1":"^4.2.0"
+    },
+    "installPaths":{
+        "fw1":"framework"
+    }
+}
