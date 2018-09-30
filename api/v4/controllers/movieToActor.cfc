@@ -5,26 +5,10 @@ component name="MovieToActor REST Endpoint"  accessors="true" output="false" {
     property fw;
     property movieToActorService;
 
-    // FW/1 will automatically run the before() function before any controller
-    // functions are run
-    public void function before( rc ){
-    }
-
-    // FW/1 will automatically run the after() function after any controller 
-    // functions are run
-    public void function after( rc ){
-        rc.data = rc.data ?: "";
-        rc.statusCode = rc.statusCode ?: 200;
-
-        // renderData() is a FW/1 utility function to serialize/render data for 
-        // REST APIs
-        fw.renderData().data( rc.data ).type( 'json').statusCode( rc.statusCode );
-    }
-
     public void function default( rc ){
         var q = movieToActorService.getAll();
 
-        rc.data = q.reduce( function( prev, row ){
+        var data = q.reduce( function( prev, row ){
             var movieLink = {
                 "id" : row.id,
                 "MovieID" : row.MovieID,
@@ -32,6 +16,10 @@ component name="MovieToActor REST Endpoint"  accessors="true" output="false" {
             };
             return prev.append( movieLink );
         }, []);
+
+        // renderData() is a FW/1 utility function to serialize/render data for 
+        // REST APIs
+        fw.renderData().data( data ).type( 'json');
     }
 
     public void function show( rc ){
@@ -40,40 +28,46 @@ component name="MovieToActor REST Endpoint"  accessors="true" output="false" {
         var q = movieToActorService.getById( rc.id );
 
         if ( q.recordCount ) {
-            rc.data = {
+            var data = {
                 "id" : q.id,
                 "MovieID" : q.MovieID,
                 "ActorID" : q.ActorID
             };
+
+            fw.renderData().data( data ).type( 'json' );
         }
         else {
-            rc.statusCode = 404;
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
         }
     }
 
     public void function create( rc ){
 
         try {
-            rc.data = movieToActorService.insert( rc.movieid, rc.actorid );
-            rc.statusCode = 201;
+            var result = movieToActorService.insert( rc.movieid, rc.actorid );
+            fw.renderData()
+                .data( '' )
+                .type( 'json' )
+                .statusCode( 201 )
+                .header( "X-INSERTED-ID", result );
         }
         catch ( any e ) {
-            rc.statusCode = 400;
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 400 );
         }
     }
 
     public void function update( rc ){
-        rc.statusCode = 405;
+        fw.renderData().data( '' ).type( 'json' ).statusCode( 405 );
     }
 
     public void function destroy( rc ){
+        var result = movieToActorService.delete( rc.id );
 
-        try {
-            var result = movieToActorService.delete( rc.id );
-            rc.statusCode = result > 0 ? 204 : 404;
+        if ( result > 0 ) {
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 204 );
         }
-        catch ( any e ) {
-            rc.statusCode = 400;
+        else {
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
         }
     }
 

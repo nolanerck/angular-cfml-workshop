@@ -6,26 +6,10 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
     property actorService;
     property movieToActorService;
 
-    // FW/1 will automatically run the before() function before any controller
-    // functions are run
-    public void function before( rc ){
-    }
-
-    // FW/1 will automatically run the after() function after any controller 
-    // functions are run
-    public void function after( rc ){
-        rc.data = rc.data ?: "";
-        rc.statusCode = rc.statusCode ?: 200;
-
-        // renderData() is a FW/1 utility function to serialize/render data for 
-        // REST APIs
-        fw.renderData().data( rc.data ).type( 'json').statusCode( rc.statusCode );
-    }
-
     public void function default( rc ){
         var q = actorService.getAll();
 
-        rc.data = q.reduce( function( prev, row ){
+        var data = q.reduce( function( prev, row ){
             var movieLinks = movieToActorService.getByActorID( row.ActorID );
             var movieIDs = valueArray( movieLinks, "MovieID" );
             var actor = {
@@ -37,6 +21,10 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
             };
             return prev.append( actor );
         }, []);
+
+        // renderData() is a FW/1 utility function to serialize/render data for 
+        // REST APIs
+        fw.renderData().data( data ).type( 'json');
     }
 
     public void function show( rc ){
@@ -47,27 +35,33 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
         if ( q.recordCount ) {
             var movieLinks = movieToActorService.getByActorID( rc.id );
             var movieIDs = valueArray( movieLinks, "MovieID" );
-            rc.data = {
+            var data = {
                 "ActorId" : q.ActorID,
                 "ActorName" : q.ActorName,
                 "BirthDate" : q.BirthDate,
                 "BornInCity" : q.BornInCity,
                 "MovieIDs" : movieIDs
             };
+            
+            fw.renderData().data( data ).type( 'json' );
         }
         else {
-            rc.statusCode = 404;
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
         }
     }
 
     public void function create( rc ){
 
         try {
-            rc.data = actorService.insert( rc.actorname, rc.birthdate, rc.bornincity );
-            rc.statusCode = 201;
+            var result = actorService.insert( rc.actorname, rc.birthdate, rc.bornincity );
+            fw.renderData()
+                .data( '' )
+                .type( 'json' )
+                .statusCode( 201 )
+                .header( "X-INSERTED-ID", result );
         }
         catch ( any e ) {
-            rc.statusCode = 400;
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 400 );
         }
     }
 
@@ -78,30 +72,35 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
     */
     public void function update( rc ){
         var q = actorService.getById( rc.id );
-            
-        // if the REST request didn't include all of the actor arguments/fields
-        // then supply them from the current database record
-        rc.actorname = structKeyExists( rc, "actorname" ) ? rc.actorname : q.actorname;
-        rc.birthdate = structKeyExists( rc, "birthdate") ? rc.birthdate : q.birthdate;
-        rc.bornincity = structKeyExists( rc, "bornincity") ? rc.bornincity : q.bornincity;
 
-        try {
-            var result = actorService.update( rc.id, rc.actorname, rc.birthdate, rc.bornincity );
-            rc.statusCode = result > 0 ? 204 : 404;
+        if ( q.recordCount ) {
+            // if the REST request didn't include all of the actor arguments/fields
+            // then supply them from the current database record
+            rc.actorname = structKeyExists( rc, "actorname" ) ? rc.actorname : q.actorname;
+            rc.birthdate = structKeyExists( rc, "birthdate") ? rc.birthdate : q.birthdate;
+            rc.bornincity = structKeyExists( rc, "bornincity") ? rc.bornincity : q.bornincity;
+
+            try {
+                actorService.update( rc.id, rc.actorname, rc.birthdate, rc.bornincity );
+                fw.renderData().data( '' ).type( 'json' ).statusCode( 204 );
+            }
+            catch ( any e ) {
+                fw.renderData().data( '' ).type( 'json' ).statusCode( 400 );
+            }
         }
-        catch ( any e ) {
-            rc.statusCode = 400;
+        else {
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
         }
     }
 
     public void function destroy( rc ){
+        var result = actorService.delete( rc.id );
 
-        try {
-            var result = actorService.delete( rc.id );
-            rc.statusCode = result > 0 ? 204 : 404;
+        if ( result > 0 ) {
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 204 );
         }
-        catch ( any e ) {
-            rc.statusCode = 400;
+        else {
+            fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
         }
     }
 }
