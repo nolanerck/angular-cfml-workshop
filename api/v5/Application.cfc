@@ -24,12 +24,15 @@ component extends="taffy.core.api" output="false" {
     };
     this.datasource = 'Movies';
 
-    variables.framework = {};
-    variables.framework.debugKey = "debug";
-    variables.framework.reloadKey = "reload";
-    variables.framework.reloadPassword = "true";
-    variables.framework.serializer = "taffy.core.nativeJsonSerializer";
-    variables.framework.returnExceptionsAsJson = true;
+    variables.framework = {
+        debugKey = "debug",
+        reloadKey = "reload",
+        reloadPassword = "true",
+        serializer = "taffy.core.nativeJsonSerializer",
+        returnExceptionsAsJson = true,
+        docs.APIName = "My Awesome 80's Movies API",
+        docs.APIVersion = "1.0.0"
+    };
 
     function onApplicationStart(){
         application.beanFactory = new di1.ioc( [ "/resources", "/sharedModel" ] );
