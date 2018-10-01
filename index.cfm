@@ -15,88 +15,61 @@
                 <h1>CFSummit Preconference Workshop</h1>
                 <h2>Angular + CFML</h2>
                 <h3>Nolan Erck and Carl Von Stetten</h3>
-            </div>
-            <!---<div class="container">
+                <p>
+                    Your ColdFusion API server is now ready to accept requests!
+                </p>
                 <ul>
-                    <li>
-                        <a href="/LegacyApp/">Legacy App Demo</a>
-                    </li>
-                    <li>
-                        <a href="/MVCApp/">MVC App Demo</a>
-                    </li>
-                    <li style="padding-top: 1em;">
-                        <a href="/SlideDeck/" target="_blank">Presentation Slides</a>
-                    </li>
-                    <li>
-                        <a href="/DependencyInjectionSlides/">Dependency Injection slides</a>
-                    </li>
-                    <li>
-                        <a href="/WireBoxDemos/">WireBox Demos</a>
-                    </li>
-                    <li style="padding-top: 1em;">Labs
+                    <li>API V1 - JSON files (/api/v1/)
                         <ul>
-                            <li>
-                                <a href="/Lab1_Models/">Lab 1 - Models</a>
-                            </li>
-                            <li>
-                                <a href="/Lab2_InstallFramework1/">Lab 2 - Install Framework-One</a>
-                            </li>
-                            <li>
-                                <a href="/Lab3_ControllersAndViews/">Lab 3 - Controllers And Views</a>
-                            </li>
-                            <li>
-                                <a href="/Lab4_ControllersAndViews/">Lab 4 - More Controllers and Views</a>
-                            </li>
-                            <li>
-                                <a href="/Lab5_ServerSideValidation/">Lab 5 - Server Side Validation</a>
-                            </li>
-                            <li>
-                                <a href="/Lab6_Layouts/">Lab 6 - Layouts</a>
-                            </li>
-                            <li>
-                                <a href="/Lab7_Subsystems/">Lab 7 - Subsystems</a>
-                            </li>
-                            <li>
-                                <a href="/Lab8_DependencyInjection/">Lab 8 - Dependency Injection</a>
-                            </li>
-                            <li>
-                                <a href="/Lab9_DependencyInjection/">Lab 9 - More Dependency Injection</a>
-                            </li>
+                            <li><a href="/api/v1/actors.json">actors.json</a></li>
+                            <li><a href="/api/v1/movies.json">movies.json</a></li>
+                            <li><a href="/api/v1/moviesToActors.json">moviesToActors.json</a></li>
                         </ul>
                     </li>
-                    <li style="padding-top: 1em;">Lab Answers
+                    <li>API V2 - CFM files (/api/v2/)
                         <ul>
-                            <li>
-                                <a href="/Lab1_Models_Answer/">Lab 1 - Models</a>
-                            </li>
-                            <li>
-                                <a href="/Lab2_InstallFramework1_Answer/">Lab 2 - Install Framework-One</a>
-                            </li>
-                            <li>
-                                <a href="/Lab3_ControllersAndViews_Answer/">Lab 3 - Controllers And Views</a>
-                            </li>
-                            <li>
-                                <a href="/Lab4_ControllersAndViews_Answer/">Lab 4 - More Controllers and Views</a>
-                            </li>
-                            <li>
-                                <a href="/Lab5_ServerSideValidation_Answer/">Lab 5 - Server Side Validation</a>
-                            </li>
-                            <li>
-                                <a href="/Lab6_Layouts_Answer/">Lab 6 - Layouts</a>
-                            </li>
-                            <li>
-                                <a href="/Lab7_Subsystems_Answer/">Lab 7 - Subsystems</a>
-                            </li>
-                            <li>
-                                <a href="/Lab8_DependencyInjection_Answer/">Lab 8 - Dependency Injection</a>
-                            </li>
-                            <li>
-                                <a href="/Lab9_DependencyInjection_Answer/">Lab 9 - More Dependency Injection</a>
-                            </li>
+                            <li><a href="/api/v2/selectActor.cfm">selectActor.cfm</a></li>
+                            <li>insertActor.cfm</li>
+                            <li>updateActor.cfm</li>
+                            <li>deleteActor.cfm</li>
+                            <li><a href="/api/v2/selectMovie.cfm">selectMovie.cfm</a></li>
+                            <li>insertMovie.cfm</li>
+                            <li>updateMovie.cfm</li>
+                            <li>deleteMovie.cfm</li>
+                        </ul>
+                    </li>
+                    <li>API V3 - CFC files with "remote" methods (/api/v3/)
+                        <ul>
+                            <li><a href = "/api/v3/actor.cfc?method=getActor">actor.cfc?method=getActor</a></li>
+                            <li>actor.cfc?method=addActor</li>
+                            <li>actor.cfc?method=updateActor</li>
+                            <li>actor.cfc?method=deleteActor</li>
+                            <li><a href = "/api/v3/movie.cfc?method=getMovie">movie.cfc?method=getMovie</a></li>
+                            <li>movie.cfc?method=addMovie</li>
+                            <li>movie.cfc?method=updateMovie</li>
+                            <li>movie.cfc?method=deleteMovie</li>
+                            <li><a href = "/api/v3/movieToActor.cfc?method=getMovieToActor">movieToActor.cfc?method=getMovieToActor</a></li>
+                            <li>movieToActor.cfc?method=addMovieToActor</li>
+                            <li>movieToActor.cfc?method=deleteMovieToActor</li>
+                        </ul>
+                    </li>
+                    <li>API V4 - FW/1 REST controllers (/api/v4/)
+                        <ul>
+                            <li>/actor</li>
+                            <li>/movie</li>
+                            <li>/movieToActor</li>
+                        </ul>
+                    </li>
+                    <li>API V5 - Taffy REST resources (/api/v5/)
+                        <ul>
+                            <li>/actor</li>
+                            <li>/movie</li>
+                            <li>/movieToActor</li>
+                            <li><a href="/api/v5">REST API Dashboard</a></li>
                         </ul>
                     </li>
                 </ul>
-            </div>--->
+            </div>
         </div>
         <cfinclude template="/includes/footer.cfm">
     </body>
