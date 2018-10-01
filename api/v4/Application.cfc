@@ -51,12 +51,18 @@ component extends="framework.one" output="false" {
             { method = 'error', httpMethods = [ '$*' ] }
         ],
         /* 
-        ** This setting allows FW/1 to accept JSON data or URL-encoded form data
-        ** for POST or PUT actions. 
+        ** The decodeRequestBody setting allows FW/1 to accept JSON data or URL-encoded 
+        ** form data for POST, PUT and PATCH actions. 
         ** See http://framework-one.github.io/documentation/4.2/developing-applications.html#controllers-for-rest-apis
         ** for more information.
         */
-        decodeRequestBody = true
+        decodeRequestBody = true,
+        /*
+        ** The preflightOptions setting allows FW/1 to respond to OPTIONS requests,
+        ** which many front-end applications will call before doing POST/PUT/PATCH/DELETE
+        ** requests.
+        */
+        preflightOptions = true
     };
 
     public void function setupSession() {  }
