@@ -48,6 +48,7 @@ component extends="framework.one" output="false" {
             { method = 'put', httpMethods = [ '$PUT' ], includeId = true },
             { method = 'patch', httpMethods = [ '$PATCH' ], includeId = true },
             { method = 'delete', httpMethods = [ '$DELETE' ], includeId = true },
+            { method = 'options', httpMethods = [ '$OPTIONS' ] },
             { method = 'error', httpMethods = [ '$*' ] }
         ],
         /* 
@@ -62,7 +63,7 @@ component extends="framework.one" output="false" {
         ** which many front-end applications will call before doing POST/PUT/PATCH/DELETE
         ** requests.
         */
-        preflightOptions = true
+        preflightOptions = false
     };
 
     public void function setupSession() {  }

@@ -123,4 +123,12 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
             fw.renderData().data( '' ).type( 'json' ).statusCode( 404 );
         }
     }
+
+    public void function options( rc ){
+        fw.renderData()
+            .data( '' )
+            .type( 'json' )
+            .statusCode( 200 )
+            .header( "Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS" );
+    }
 }
