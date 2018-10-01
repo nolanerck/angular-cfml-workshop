@@ -23,5 +23,6 @@
 		<note>Set CORS header</note>
 		<from>.*</from>
 		<set type="response-header" name="Access-Control-Allow-Origin">*</set>
+		<set type="response-header" name="Access-Control-Allow-Headers">Content-Type</set>
 	</rule>
 </urlrewrite>

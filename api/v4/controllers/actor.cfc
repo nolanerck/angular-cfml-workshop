@@ -129,7 +129,6 @@ component name="Actor REST Endpoint"  accessors="true" output="false" {
             .data( '' )
             .type( 'json' )
             .statusCode( 200 )
-            .header( "Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS" )
-            .header( "Access-Control-Allow-Headers", "Content-Type");
+            .header( "Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS" );
     }
 }
