@@ -19,4 +19,9 @@
 		<from>^\/(api\/v[4-6])\/(.+)$</from>
 		<to type="passthrough">/$1/index.cfm/$2</to>
 	</rule>
+	<rule>
+		<note>Set CORS header</note>
+		<from>.*</from>
+		<set type="response-header" name="Access-Control-Allow-Origin">*</set>
+	</rule>
 </urlrewrite>

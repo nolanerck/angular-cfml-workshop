@@ -6,7 +6,8 @@
     "web":{
         "rewrites":{
             "enable":true,
-            "config":"customurlrewrite.xml"
+            "config":"customurlrewrite.xml",
+            "configReloadSeconds":"30"
         },
         "http":{
             "port":8080
