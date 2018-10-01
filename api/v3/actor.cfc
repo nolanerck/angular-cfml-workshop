@@ -41,7 +41,7 @@
 
     <cffunction name="addActor" access="remote" returntype="string" returnformat="JSON">
         <cfargument name="actorname" type="string" default="">
-        <cfargument name="birthdate" type="date" default="">
+        <cfargument name="birthdate" type="date" default="#Now()#">
         <cfargument name="bornincity" type="string" default="">
         <cfset var data = actorService.insert( arguments.actorname, 
             arguments.birthdate, arguments.bornincity )>
@@ -54,7 +54,7 @@
     <cffunction name="updateActor" access="remote" returntype="string" returnformat="JSON">
         <cfargument name="actorid" type="numeric" default="0">
         <cfargument name="actorname" type="string" default="">
-        <cfargument name="birthdate" type="date" default="">
+        <cfargument name="birthdate" type="date" default="#Now()#">
         <cfargument name="bornincity" type="string" default="">
         <cfset var data = "">
 

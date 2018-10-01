@@ -1,6 +1,6 @@
 <cfsilent>
     <cfparam name="FORM.actorname" type="string" default="">
-    <cfparam name="FORM.birthdate" type="date" default="">
+    <cfparam name="FORM.birthdate" type="date" default="#Now()#">
     <cfparam name="FORM.bornincity" type="string" default="">
     <cfquery result="result">
         INSERT INTO tActors
